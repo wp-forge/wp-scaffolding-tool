@@ -3,7 +3,7 @@
   "description": "A zero-config scaffolding tool for WordPress.",
   "type": "library",
   "homepage": "https://github.com/wp-forge/wp-cli-forge-command",
-  "license": "MIT",
+  "license": "GPL-2.0-or-later",
   "authors": [
     {
       "name": "Micah Wood",
