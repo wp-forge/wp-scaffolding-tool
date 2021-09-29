@@ -1,0 +1,6 @@
+# Code editors
+.idea
+.vscode
+
+# Composer
+/vendor
