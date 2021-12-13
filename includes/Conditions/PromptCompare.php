@@ -77,7 +77,6 @@ class PromptCompare extends AbstractCondition {
 			case 'eq':
 			case 'equals':
 			default:
-				
 				return $stored === $value;
 		}
 	}
@@ -91,7 +90,7 @@ class PromptCompare extends AbstractCondition {
 	 */
 	private function multitype_contains( $haystack, $needle ) {
 		if ( is_array( $haystack ) ) {
-			return in_array( $needle, $haystack );
+			return in_array( $needle, $haystack, true );
 		} elseif ( is_object( $haystack ) ) {
 			return property_exists( $haystack, $needle );
 		} elseif ( is_string( $haystack ) ) {
@@ -103,11 +102,11 @@ class PromptCompare extends AbstractCondition {
 
 	/**
 	 * Set the default comparison operator condition when a config doesn't provide it.
-	 * 
+	 *
 	 * Arrays and objects check contains.
 	 * Strings and otherwise check equals.
 	 *
-	 * @param mixed $stored
+	 * @param mixed $stored Stored value in $this->store to type-check.
 	 * @return string
 	 */
 	private function default_comparison_operator( $stored ) {
