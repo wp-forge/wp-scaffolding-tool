@@ -2,7 +2,7 @@
   "name": "wp-forge/wp-scaffolding-tool",
   "description": "A zero-config scaffolding tool for WordPress.",
   "type": "library",
-  "homepage": "https://github.com/wp-forge/wp-cli-forge-command",
+  "homepage": "https://github.com/wp-forge/wp-scaffolding-tool",
   "license": "GPL-2.0-or-later",
   "authors": [
     {
