@@ -5,7 +5,7 @@ namespace WP_Forge\WP_Scaffolding_Tool\Conditions;
 /**
  * Class Prompt
  */
-class PromptCompare extends AbstractCondition {
+class Prompt extends AbstractCondition {
 
 	/**
 	 * Validate condition properties.
