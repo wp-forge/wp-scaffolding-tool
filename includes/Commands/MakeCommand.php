@@ -109,6 +109,10 @@ class MakeCommand extends AbstractCommand {
 		$path      = array_pop( $parts );
 		$namespace = $this->registry()->get( 'namespace', data_get( $parts, '0', 'default' ) );
 
+		if ( empty( $namespace ) ) {
+			$namespace = 'default';
+		}
+
 		if ( ! $this->registry()->has( 'namespace' ) ) {
 			$this->registry()->set( 'namespace', $namespace );
 		}
