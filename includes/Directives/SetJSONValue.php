@@ -78,7 +78,7 @@ class SetJSONValue extends AbstractDirective {
 	public function execute() {
 		$filesystem = $this->filesystem( $this->path );
 
-		$data = json_decode( $filesystem->read( $this->file ), true );
+		$data = json_decode( $filesystem->read( $this->file ) );
 		if ( ! $data ) {
 			$this->error( 'Unable to decode JSON: ' . $this->appendPath( $this->path, $this->file ) );
 		}
