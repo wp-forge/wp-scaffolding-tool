@@ -36,7 +36,7 @@ trait Filesystem {
 	protected function appendPath( $path, $append ) {
 		$args = func_get_args();
 		array_shift( $args );
-		$append = implode( DIRECTORY_SEPARATOR, $args );
+		$append = implode( DIRECTORY_SEPARATOR, array_filter( $args ) );
 
 		return rtrim( $path, DIRECTORY_SEPARATOR ) . DIRECTORY_SEPARATOR . $append;
 	}
