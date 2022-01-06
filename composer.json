@@ -18,13 +18,16 @@
     "mustache/mustache": "^2.13",
     "wpscholar/collection": "^1.0",
     "wp-forge/container": "^1.0",
-    "wp-forge/data-store": "^1.0",
-    "wp-forge/helpers": "^1.1"
+    "wp-forge/data-store": "^1.1",
+    "wp-forge/helpers": "^2.0"
   },
   "require-dev": {
     "wpscholar/phpcs-standards-wpscholar": "^1.0"
   },
   "autoload": {
+    "files": [
+      "includes/functions.php"
+    ],
     "psr-4": {
       "WP_Forge\\WP_Scaffolding_Tool\\": "includes"
     }
@@ -36,5 +39,10 @@
     "fix": [
       "vendor/bin/phpcbf --standard=phpcs.xml -s ."
     ]
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
   }
 }
