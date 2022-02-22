@@ -77,10 +77,7 @@ class Utilities {
 	 * @return false|mixed|string
 	 */
 	public static function resolvePath( $path ) {
-		if ( DIRECTORY_SEPARATOR !== '/' ) {
-			$path = str_replace( DIRECTORY_SEPARATOR, '/', $path );
-		}
-		$search = explode( '/', $path );
+		$search = explode( DIRECTORY_SEPARATOR, $path );
 		$search = array_filter(
 			$search,
 			function ( $part ) {
@@ -90,7 +87,7 @@ class Utilities {
 		$append = array();
 		$match  = false;
 		while ( count( $search ) > 0 ) { // phpcs:ignore Squiz.PHP.DisallowSizeFunctionsInLoops.Found
-			$match = realpath( implode( '/', $search ) );
+			$match = realpath( implode( DIRECTORY_SEPARATOR, $search ) );
 			if ( false !== $match ) {
 				break;
 			}
