@@ -22,7 +22,9 @@
     "wp-forge/helpers": "^2.0"
   },
   "require-dev": {
-    "wpscholar/phpcs-standards-wpscholar": "^1.0"
+    "phpunit/phpunit": "^9.6",
+    "wpscholar/phpcs-standards-wpscholar": "^1.0",
+    "wp-cli/wp-cli": "^2.11"
   },
   "autoload": {
     "files": [
@@ -32,13 +34,26 @@
       "WP_Forge\\WP_Scaffolding_Tool\\": "includes"
     }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "WP_Forge\\WP_Scaffolding_Tool\\": [
+        "tests/unit/includes"
+      ]
+    }
+  },
   "scripts": {
     "lint": [
       "vendor/bin/phpcs --standard=phpcs.xml -s ."
     ],
     "fix": [
       "vendor/bin/phpcbf --standard=phpcs.xml -s ."
+    ],
+    "test": [
+        "phpunit ./tests/unit"
     ]
+  },
+  "scripts-descriptions": {
+    "test": "Run PHPUnit tests."
   },
   "config": {
     "allow-plugins": {
