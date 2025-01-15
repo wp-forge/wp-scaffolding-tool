@@ -161,4 +161,46 @@ EOD;
 
 		unlink( $tempDir . '/composer.json' );
 	}
+
+	/**
+	 * @covers ::validate
+	 * @covers ::evaluate
+	 */
+	public function test_validate_package_in_composer_lock(): void {
+		$container = $this->createMock( \WP_Forge\Container\Container::class );
+
+		$args = array(
+			'condition' => 'composerPackageInstalled',
+			'package'   => 'php-stubs/wordpress-stubs',
+		);
+
+		$composerLockJson = <<<EOD
+{
+    "packages": [
+        {
+            "name": "not-php-stubs/wordpress-stubs"
+        }
+    ],
+    "packages-dev": [
+        {
+            "name": "php-stubs/wordpress-stubs"
+        }
+    ]
+}
+EOD;
+		$tempDir      = sys_get_temp_dir();
+		file_put_contents( $tempDir . '/composer.json', '{}' );
+		file_put_contents( $tempDir . '/composer.lock', $composerLockJson );
+		chdir( $tempDir );
+
+		$sut = ( new ComposerPackageInstalled( $container ) )->withArgs( $args );
+
+		$sut->validate();
+
+		$result = $sut->evaluate();
+
+		$this->assertTrue( $result );
+
+		unlink( $tempDir . '/composer.json' );
+	}
 }
