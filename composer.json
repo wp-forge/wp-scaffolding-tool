@@ -36,7 +36,9 @@
   },
   "autoload-dev": {
     "psr-4": {
-      "WP_Forge\\WP_Scaffolding_Tool\\": "tests/includes"
+      "WP_Forge\\WP_Scaffolding_Tool\\": [
+        "tests/unit/"
+      ]
     }
   },
   "scripts": {
@@ -47,7 +49,7 @@
       "vendor/bin/phpcbf --standard=phpcs.xml -s ."
     ],
     "test": [
-        "phpunit ./tests/includes"
+        "phpunit ./tests/unit"
     ]
   },
   "scripts-descriptions": {
