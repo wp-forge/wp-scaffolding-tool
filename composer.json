@@ -12,6 +12,7 @@
     }
   ],
   "require": {
+    "ext-json": "*",
     "php": ">=7.3",
     "league/climate": "^3.7",
     "league/flysystem": "^2.1",
