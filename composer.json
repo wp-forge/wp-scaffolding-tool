@@ -37,7 +37,7 @@
   "autoload-dev": {
     "psr-4": {
       "WP_Forge\\WP_Scaffolding_Tool\\": [
-        "tests/unit/"
+        "tests/unit/includes"
       ]
     }
   },
