@@ -28,8 +28,8 @@ class ComposerPackageInstalled extends AbstractCondition {
 		}
 
 		$composer = json_decode( file_get_contents( 'composer.json' ), true );
-		if ( isset( $composer['require'][ $this->args['package'] ] )
-			|| isset( $composer['require-dev'][ $this->args['package'] ] ) ) {
+		if ( isset( $composer['require'][ $this->get('package') ] )
+			|| isset( $composer['require-dev'][ $this->get('package') ] ) ) {
 			return true;
 		}
 
@@ -40,7 +40,7 @@ class ComposerPackageInstalled extends AbstractCondition {
 		$composerLock = json_decode( file_get_contents( 'composer.lock' ), true );
 
 		return in_array(
-			$this->args['package'],
+			$this->get('package'),
 			array_map(
 				function ( $package ) {
 					return $package['name'];
